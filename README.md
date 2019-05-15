@@ -1,6 +1,10 @@
+# TypeScript With React Demo
+
+> Created By ChrisWen
+
 This project was based on [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Start
 
 In the project directory, you can run:
 
