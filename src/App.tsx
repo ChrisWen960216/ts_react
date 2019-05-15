@@ -1,6 +1,6 @@
 import { default as React } from 'react';
 import { default as logo } from './assets/logo.svg';
-import './App.css';
+import './styles/App.css';
 
 type Props = {
   readonly count?: number;
