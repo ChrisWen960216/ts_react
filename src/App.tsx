@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import { default as React } from 'react';
+import { default as logo } from './assets/logo.svg';
 import './App.css';
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+type Props = {
+  readonly count?: number;
+};
+
+type State = {
+  readonly count: number;
+};
+
+class App extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      count: this.props.count || 0,
+    };
+    this.addCount = this.addCount.bind(this);
+  }
+
+  addCount() {
+    this.setState((preState: State) => ({ count: preState.count + 1 }));
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>{this.state.count}</p>
+          <button onClick={this.addCount}>
+            Add Count
+          </button>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
